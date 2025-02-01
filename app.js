@@ -8,7 +8,7 @@ const cors = require('cors');
 const app = express();
 
 // Enable CORS for your frontend hosted on Render
-app.use(cors({ origin: 'https://gcit-hub.onrender.com', credentials: true }));
+app.use(cors({ origin: 'https://gcit-hub-mkrr.onrender.com', credentials: true }));
 
 app.use(cookieParser());
 app.use(express.json());
