@@ -4,7 +4,7 @@
   "description": "to ensure that the medicines prescribed to paitents are suitable and advise patients about medicines, including how to take them, what reactions may occu, and answer patients' questions",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --ignore uploads/ server.js"
+    "start": "nodemon  server.js"
   },
   "repository": {
     "type": "git",
