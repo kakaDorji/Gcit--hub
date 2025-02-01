@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .form-group{
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container{
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .final-btn{
+            width: 250px;
+            display: flex;
+            flex-direction: row;
+        }
+        .form-sep{
+            background-color: rgb(248, 248, 248);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-top: 15px;
+            border-width: 2px;
+            border-color: rgb(56, 56, 56);
+            border-radius: 25px;
+        }
+        #btn-preview{
+            margin-right: 20px;
+            height: 38px;
+        }
+    </style>
+
+    <title>GCIT Appstore</title>
+
+</head>
+
+<body>
+    <script src="/components/navbar.js"></script>
+
+    <div class="container">        
+        <div class="form-container">
+            <h1 class="mb-4">Edit App</h1>
+            <form class="mb-5 form-sep" id="edit-app">
+                <div class="form-group row mb-3">
+                    <label for="app-name" class="col-sm-2 col-form-label">App name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="name" id="app-name" placeholder="My app">
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-3">
+                    <label for="app-description" class="col-sm-2 col-form-label">App description</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" name="description" id="app-description" rows="3"></textarea>
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-3">
+                    <label for="app-version" class="col-sm-2 col-form-label">Version</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="version" id="app-version" placeholder="eg 0.0.0">
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-3">
+                <label for="app-category" class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-10">
+                    <select class="form-select" id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="educational">Educational</option>
+                    <option value="games">Games</option>
+                    <option value="business">Business</option>
+                    <option value="media">Media</option>
+                    <option value="other">Other</option>
+                    </select>
+                </div>
+                </div>
+    
+                <button class="btn btn-success">Save changes</button>
+            </form>
+            <form class="my-5 form-sep" id="edit-icon" enctype="multipart/form-data">
+                <div class="form-group row mb-3">
+                    <label for="app-name" class="col-sm-2 col-form-label">Icon</label>
+                    <div class="col-sm-10">
+                        <img id="app-icon-img" src="" class="object-fit-cover border rounded"
+                            style="width: 100px;height: 100px;" alt="...">
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-3">
+                    <label for="app-name" class="col-sm-2 col-form-label" >New Icon</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="icon" class="form-control" id="app-icon" required>
+                    </div>
+                </div>
+    
+                <button class="btn btn-success">Save new icon</button>
+                <button id="remove-icon" type="button" class="btn btn-danger">Remove icon</button>
+            </form>
+            <form class="my-5 form-sep" id="save-app" enctype="multipart/form-data">
+                <div class="form-group row mb-3">
+                    <label for="app-name" class="col-sm-2 col-form-label">App file</label>
+                    <div class="col-sm-10">
+                        <div><i class="bi bi-file-earmark-fill"></i> <span id="app-size"></span></div>
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-3">
+                    <label for="app-name" class="col-sm-2 col-form-label">New app file</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="app" class="form-control" id="app-file" required>
+                    </div>
+                </div>
+    
+                <button class="btn btn-success">Save file</button>
+                <button id="remove-file" type="button" class="btn btn-danger">Remove file</button>
+            </form>
+            <form class="my-5 form-sep" id="save-screenshots" enctype="multipart/form-data">
+                <div class="form-group row mb-3">
+                    <label for="app-name" class="col-sm-2 col-form-label">Screenshots</label>
+                    <div class="col-sm-10">
+                        <div id="screenshots" class="w-100 d-flex flex-wrap gap-3">
+    
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="form-group row mb-3">
+                    <label for="app-name" class="col-sm-2 col-form-label">Upload new screenshots</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="screenshots" class="form-control" id="screenshot-input" multiple required>
+                    </div>
+                </div>
+    
+                <button class="btn btn-success">Save new screenshots</button>
+                <button id="remove-screenshots" type="button" class="btn btn-danger">Remove all screenshots</button>
+            </form>
+            <div class="final-btn">
+                <div class="preview-btn">
+                    <a id="btn-preview" href="" class="btn btn-success mt-5 mb-3">Preview</a>
+                </div>
+                <div>
+                    <form class="mt-5 mb-3" id="delete-app" enctype="multipart/form-data">
+                        <button id="delete-app-btn" type="button" class="btn btn-danger">DELETE APP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/components/footer.js"></script>
+
+    <script type="module" src="/js/editApp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+</body>
+
+</html>

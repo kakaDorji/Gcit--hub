@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <title>GCIT Appstore</title>
+
+</head>
+
+<body>
+    <script src="/components/navbar.js"></script>
+    <script type="module" src="/js/login.js"></script>
+    <script type="module" src="/js/signup.js"></script>
+
+    <!-- your code start here  -->
+    <div class="container mt-5" style="min-height: 100vh;">
+        <!-- User Information Section -->
+        
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <img id="user-img" src="/images/default.jpg" alt="Profile Pic" class="img-thumbnail h-75">
+                </div>
+                <div class="col-md-10">
+                    <h4 class="card-title" id="user-name"></h4>
+                    <p class="card-text" id="user-email"></p>
+
+                    <div>
+                        <button id="edit-user" type="button" class="btn btn-success d-none" data-bs-toggle="modal"
+                            data-bs-target="#userEditModal">Edit user</button>
+                        <button id="change-password" type="button" class="btn d-none"
+                            data-bs-toggle="modal" data-bs-target="#changePasswordModal" style="background-color: #FFA500;">Change
+                            password </button>
+                        <button id="delete-user" type="button" class="btn btn-danger d-none" data-bs-toggle="modal"
+                            data-bs-target="#userDeleteModal">Delete user</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- List of User's Apps Section -->
+        <div class="mt-4">
+            <h4>List of User's Apps</h4>
+            <div id="user-apps" class="list-group">
+                <!-- Add more list items as needed -->
+            </div>
+        </div>
+
+        <div class="modal fade" id="userEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #FFA500;">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" >
+                        <form id="form-edit-user">
+                            
+                            <input id="name" type="text" class="form-control mb-3" placeholder="New name" required>
+                            
+                            <input id="email" type="email" class="form-control mb-3" placeholder="New email" required>
+                        </form>
+                    </div>
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button id="confirm-edit-user" type="button" class="btn btn-success">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #FFA500;">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body"  >
+                        <form id="form-change-password">                            
+                            
+                            <input id="passwordCurrent" type="password" class="form-control mb-3" placeholder="Current password"
+                                required>
+                            
+                            <input id="password" type="password" class="form-control mb-3" placeholder="New password"
+                                required>
+                            
+                            <input id="passwordConfirm" type="password" class="form-control mb-3"
+                                placeholder="Confirm password" required>
+                        </form>
+                    </div>
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button id="confirm-change-password" type="button" class="btn btn-success">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="userDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #FFA500;">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete user</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" >
+                        <form id="form-delete-user">
+                            Are you sure you want to delete this user?
+                        </form>
+                    </div>
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+                        <button id="user-confirm-delete" type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/components/footer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+    <script type="module" src="/js/userPreview.js"></script>
+</body>
+
+</html>

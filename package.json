@@ -1,0 +1,41 @@
+{
+  "name": "gcit_appstore",
+  "version": "1.0.0",
+  "description": "to ensure that the medicines prescribed to paitents are suitable and advise patients about medicines, including how to take them, what reactions may occu, and answer patients' questions",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --ignore uploads/ server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/12200025.gcit/agile.git).git"
+  },
+  "author": "12200025",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/12200025.gcit/agile.git)/issues"
+  },
+  "homepage": "https://gitlab.com/12200025.gcit/agile.git)#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0",
+    "fs-extra": "^11.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.10.0",
+    "mongoose": "^7.6.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15",
+    "openssl": "^2.0.0",
+    "path": "^0.12.7",
+    "util": "^0.12.5",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

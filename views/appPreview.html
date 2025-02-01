@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    .container-app {
+      padding-left: 50px;
+      display: flex;
+      flex-direction: row;
+    }
+    .row {
+      width: 75%;
+    }
+    .screenshots-holder {
+      width: 20%;
+      margin-left: 50px;
+    }
+    .not-comment {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  <title>GCIT Appstore</title>
+</head>
+
+<body>
+  <script src="/components/navbar.js"></script>
+  <script type="module" src="/js/login.js"></script>
+  <script type="module" src="/js/signup.js"></script>
+
+  <div class="container-app">
+    <div class="row">
+      <div class="not-comment">
+        <div class="d-flex justify-content-between pt-4">
+          <div class="d-flex justify-content-start gap-4 w-100">
+            <div>
+              <img
+                id="app-icon-img"
+                src=""
+                class="object-fit-cover border rounded"
+                style="width: 230px; height: 230px"
+                alt="..."
+              />
+            </div>
+            <div>
+              <h1 id="app-name" class="fw-bold">
+                <div class="btn"></div>
+              </h1>
+              <div class="mb-3">(<span id="app-category"></span>)</div>
+
+              <div class="d-flex justify-content-between gap-5 pt-3">
+                <p>Version: <span id="app-version"></span></p>
+                <p>Downloads: 200K</p>
+                <p>
+                  Size: <i class="bi bi-file-earmark-fill"></i>
+                  <span id="app-size"></span>
+                </p>
+              </div>
+
+              <div id="user-btns" class="py-3"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="aboutApp pt-5">
+          <h3 class="fw-bold">About this App</h3>
+          <p class="py-4" id="app-description"></p>
+        </div>
+      </div>
+
+      <div class="comments">
+        <h3 class="fw-bold">Comments</h3>
+        <div class="userComment pt-4">
+          <div class="user d-flex">
+            <img src="/images/default.jpg" width="50" height="50" alt="user" />
+            <h6 class="ps-3 pt-2 fw-bold" id="user-fullname"></h6>
+          </div>
+          <textarea
+            id="user-comment-text"
+            class="form-control large-input"
+            placeholder="Enter your Comments here"
+            style="height: 10rem"
+          ></textarea>
+          <div class="pb-5 pt-2">
+            <button
+              id="post-btn"
+              class="btn text-white px-4 me-2 btn-success"
+            >
+              Comment
+            </button>
+          </div>
+        </div>
+
+        <div id="user-comments-list" class="pt-4">
+          <!-- Comments will be loaded here -->
+        </div>
+      </div>
+    </div>
+    <div class="screenshots-holder">
+      <h3>Screenshots</h3>
+      <div id="screenshots" class="w-100 d-flex flex-wrap gap-3"></div>
+    </div>
+  </div>
+
+  
+  <script type="module" src="/js/comment.js"></script>
+  <script src="/components/footer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+  <script type="module" src="/js/appPreview.js"></script>
+</body>
+</html>
