@@ -20,6 +20,7 @@ app.use('/api/v1/users', userRouter)
 app.use('/api/v1/apps', appRouter)
 app.use('/', viewRouter)
 
+
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).json({
     error: err.message
