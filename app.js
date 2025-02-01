@@ -7,25 +7,13 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 
-// Enable CORS for frontend
-const allowedOrigins = ['https://gcit-hub-mkrr.onrender.com'];
+// Enable CORS for your frontend hosted on Render
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
-}));
 
-// Allow credentials for cookies
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
-});
+app.use(cors());
+
+
+
 
 app.use(cookieParser());
 app.use(express.json());
