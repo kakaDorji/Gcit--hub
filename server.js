@@ -1,21 +1,20 @@
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-dotenv.config({path: './config.env'})
-const app = require('./app')
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const cors = require('cors');  // Add this
+dotenv.config({ path: './config.env' });
 
-//online
-const DB= process.env.DATABASE
-mongoose.connect(DB).then((con) => {
-   console.log('DB connection successful')
-}).catch(error => console.log(error))
+const app = require('./app');
 
-//local
-//const local_DB = process.env.DATABASE_LOCAL
-//mongoose.connect(local_DB).then((con) =>{
-//console.log("DB connection successful")
-//})
-   
-const port = 4001
+app.use(cors());  // Enable CORS
+
+// Online DB connection
+const DB = process.env.DATABASE;
+mongoose.connect(DB)
+  .then(() => console.log('DB connection successful'))
+  .catch(error => console.log(error));
+
+// Start server
+const port = 4001;
 app.listen(port, () => {
-   console.log(`App running on port ${port} ..`)
-})
+  console.log(`App running on port ${port}..`);
+});
