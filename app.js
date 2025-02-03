@@ -1,15 +1,18 @@
 const express = require('express');
-const userRouter = require('./routes/userRoutes');
-const appRouter = require('./routes/appRoutes');
-const viewRouter = require('./routes/viewRoutes');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const cors = require('cors');
+const dotenv = require('dotenv');
+const userRouter = require('./routes/userRoutes');
+const appRouter = require('./routes/appRoutes');
+const viewRouter = require('./routes/viewRoutes');
+
+dotenv.config({ path: './config.env' });
+
 const app = express();
 
-// Enable CORS for your frontend hosted on Render
-app.use(cors({ origin: 'https://gcit-hub-mkrr.onrender.com', credentials: true }));
-
+// Middleware
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
@@ -25,9 +28,7 @@ app.use('/', viewRouter);
 
 // Global Error Handler
 app.use((err, req, res, next) => {
-  res.status(err.statusCode || 500).json({
-    error: err.message
-  });
+  res.status(err.statusCode || 500).json({ error: err.message });
 });
 
-module.exports = app;
+module.exports = app; // ✅ Export app only (server will be in `server.js`)
